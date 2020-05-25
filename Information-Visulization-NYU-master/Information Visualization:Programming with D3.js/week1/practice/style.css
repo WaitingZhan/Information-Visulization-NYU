@@ -1,0 +1,16 @@
+#id_selector{
+  background:pink;
+  border: solid 1px blue;
+  padding: 10px;
+}
+
+
+.class_selector{
+  background-color: Gold;
+}
+
+
+
+.button: hover {
+  background-color: MintCream;
+}

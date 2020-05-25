@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+
+  <body>
+    <div>
+      <img id = "animalImg" src = 'honey.jpeg' height="200" />
+    </div>
+
+    <div id = "text" style = "font-size:40px"> This is an animal.
+    </div>
+
+    <div>
+      <button onclick = change('rabbit.jpeg')>show rabit</button>
+      <button onclick = change('honey.jpeg')> show corgi honey </button>
+      <button onclick = changeColor()>change color</button>
+    </div>
+
+  </body>
+  <script src = "https://d3js.org/d3.v4.min.js"></script>
+  <script>
+    let  header = d3.select("#page-header").text(["chang the text here"])
+    function change(imgName){
+      d3.select("#animalImg").attr("src", imgName)
+    }
+
+    function changeColor(){
+        d3.select("#text").style("color","pink")
+    }
+
+  </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul id = "itemlist">
+      <li> Item 1</li>
+      <li> Item 2</li>
+    </ul>
+    <button onclick = "change1()"> add new item </button>
+    <button onclick = "change2()"> remove all items </button>
+    <button onclick = "change3()"> remove last item </button>
+
+  </body>
+  <script src = "https://d3js.org/d3.v4.min.js"></script>
+  <script>
+    let itemlist =  d3.select("#itemlist")
+
+    function count(){
+      return itemlist.selectAll("li").size()
+    }
+
+    function change1(){
+      let c = count() + 1
+      itemlist.append("li").text("item " + c)
+    }
+
+    function change2(){
+      itemlist.selectAll("li").remove()
+    }
+
+    function change3(){
+      itemlist.select("li:last-child").remove()
+    }
+
+
+
+
+  </script>
+</html>
