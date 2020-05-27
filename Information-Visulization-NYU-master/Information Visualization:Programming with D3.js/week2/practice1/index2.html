@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>sort and filter data from csv using d3</title>
+  </head>
+  <body>
+    <h1>sort and filter from csv using d3</h1>
+      <div id="container"></div>
+  </body>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+    let container = d3.select("#container")
+    d3.csv("data.csv",function (data) {
+        data.sort((a,b)=> {
+          return d3.ascending(a.Price,b.Price)
+        })
+        let filtereddata = data.filter(d =>{
+          return d.Price > 3000
+        })
+        showdata(filtereddata);
+        }
+    )
+    write("i love you")
+    function showdata(data){
+      for (let client of data) {
+          write(client.Product+ ',      '+client.Price);
+      }
+
+    }
+    function write(text) {
+        container.append("div").text(text)
+    }
+</script>
+</html>

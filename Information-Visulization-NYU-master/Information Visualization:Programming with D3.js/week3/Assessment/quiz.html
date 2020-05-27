@@ -1,0 +1,19 @@
+<!-- 1. d.data |d.price|line -->
+2. d3.angles d3.compute d3.arc
+<!-- 3. <path> -->
+<!-- 4. position , meta information, country borders -->
+<!-- 5. sequential color scale!!! this is what i am looking for !! i'm so happy.
+    d => cScale(d.properties.population)
+let cScale= d3.scaleLinear()
+		.domain(0, maxPopulation)
+		.range(“white”,  “red”)
+
+chart.selectAll(“path”)
+	.data(geoJsonData.features)
+	.enter()
+	.append(“path”)
+	.attr(“d”,geoPath)
+	.attr(“fill”, ______ ) -->
+<!-- 6.  won't draw circle in the right position -->
+<!-- 7. d3.geoNaturalEarth1() -->
+<!-- 8. False -->

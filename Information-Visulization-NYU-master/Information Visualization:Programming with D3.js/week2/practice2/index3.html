@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Binding Data</title>
+  </head>
+  <body>
+      <h1> Binding data using d3</h1>
+      <h1> Joins</h1>
+      <p> </p>
+      <img src="d3 joins.jpeg" height="100px">
+      <h2>selection.data(array[key])</h2>
+      <button onclick = "addClient()"> Add </button>
+      <button onclick = "removeClient()"> Remove </button>
+  </body>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+      let container = d3.select("#container")
+      d3.csv("data.csv",function (data) {
+          showdata(data);
+          }
+      )
+      write("i love you")
+      function showdata(data){
+        for (let client of data) {
+          if (client.Price > 3600){
+            write(client.Price);
+          }
+        }
+
+      }
+      function write(text) {
+          container.append("div").text(text)
+      }
+  </script>
+</html>

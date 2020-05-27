@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>transform data(map, return) from csv using d3</title>
+  </head>
+  <body>
+    <h1>transform data (map and reduce) from csv using d3</h1>
+    <h2>map: for each element in the original data , and do something and transorm this element and return the transformed version of data. </h2>
+    <h2>map does not change your original data </h2>
+    <h2>reduce: </h2>
+      <div id="container"></div>
+  </body>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+    let container = d3.select("#container")
+    d3.csv("data.csv",function (data) {
+        data.map(d =>{
+          d.Price = d.Price* 0.1;
+          return d
+        })
+        showdata(data);
+        }
+
+    )
+    write("i love you")
+    function showdata(data){
+      for (let client of data) {
+          write(client.Product+ ',      '+client.Price);
+      }
+      write("-------------")
+      let sum = data.reduce((prev,curr) => {
+        return prev + curr.Price
+      },0)
+      let mean = sum/data.length
+      write("Mean: " + mean )
+    }
+    function write(text) {
+        container.append("div").text(text)
+    }
+</script>
+</html>

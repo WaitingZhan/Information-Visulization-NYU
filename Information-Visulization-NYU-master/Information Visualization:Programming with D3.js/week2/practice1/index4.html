@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Compute simple statistics using d3 loading data and compute</title>
+  </head>
+  <body>
+    <h1>Compute simple statistics using d3</h1>
+    <h2>d3.max(function(d){
+      return d.age
+    })</h2>
+    <h2>d3.min(function(d){
+      return d.age
+    })</h2>
+
+    <h2>d3.extend(function(d){
+      return [minimum,maximum]
+    })</h2>
+
+    <h2>d3.sum(data,function(d){
+      return d.age
+    })</h2>
+    <div id = "container"> </div>
+
+  </body>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+      let container = d3.select("#container")
+      d3.csv("data.csv",function (data) {
+          showdata(data);
+          }
+      )
+      write("i love you")
+      function showdata(data){
+        for (let client of data) {
+          if (client.Price > 3600){
+            write(client.Price);
+          }
+        }
+        write("----------------------")
+        let PriceSum = d3.sum(data, (d) => d.Price)
+        write("Sum: " + PriceSum )
+
+        let  PriceMean = d3.mean(data,(d) => d.Price)
+        write("mean: " + PriceMean)
+
+        let extent = d3.extent(data, (d) => d.Price)
+        write("Extent: " + extent)
+
+
+
+      }
+      function write(text) {
+          container.append("div").text(text)
+      }
+  </script>
+</html>
